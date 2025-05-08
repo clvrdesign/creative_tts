@@ -21,7 +21,7 @@ const ContactPage = () => {
         <section className='mb-20 grid grid-cols-1 md:grid-cols-3 gap-6'>
           {/* Email Card */}
           <div className='bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-800 hover:shadow-md transition-shadow'>
-            <div className='w-12 h-12 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-4'>
+            <div className='w-12 h-12 rounded-full bg-indigo-900/30 flex items-center justify-center mb-4'>
               <Mail className='w-6 h-6 text-indigo-400' />
             </div>
             <h3 className='text-xl font-semibold mb-2 text-white'>Email Us</h3>
@@ -30,7 +30,7 @@ const ContactPage = () => {
             </p>
             <a
               href='mailto:support@ttsapp.ai'
-              className='text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 flex items-center'
+              className='text-indigo-400 hover:text-indigo-300 flex items-center'
             >
               support@ttsapp.ai <ChevronRight className='w-4 h-4 ml-1' />
             </a>
@@ -38,7 +38,7 @@ const ContactPage = () => {
 
           {/* Phone Card */}
           <div className='bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-800 hover:shadow-md transition-shadow'>
-            <div className='w-12 h-12 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-4'>
+            <div className='w-12 h-12 rounded-full bg-indigo-900/30 flex items-center justify-center mb-4'>
               <Phone className='w-6 h-6 text-indigo-400' />
             </div>
             <h3 className='text-xl font-semibold mb-2 text-white'>Call Us</h3>
@@ -47,7 +47,7 @@ const ContactPage = () => {
             </p>
             <a
               href='tel:+18005551234'
-              className='text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 flex items-center'
+              className='text-indigo-400 hover:text-indigo-300 flex items-center'
             >
               +257 79 993 587 <ChevronRight className='w-4 h-4 ml-1' />
             </a>
@@ -55,7 +55,7 @@ const ContactPage = () => {
 
           {/* Location Card */}
           <div className='bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-800 hover:shadow-md transition-shadow'>
-            <div className='w-12 h-12 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-4'>
+            <div className='w-12 h-12 rounded-full bg-indigo-900/30 flex items-center justify-center mb-4'>
               <MapPin className='w-6 h-6 text-indigo-400' />
             </div>
             <h3 className='text-xl font-semibold mb-2 text-white'>Visit Us</h3>
@@ -66,7 +66,7 @@ const ContactPage = () => {
               href='https://maps.google.com'
               target='_blank'
               rel='noopener noreferrer'
-              className='text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 flex items-center'
+              className='text-indigo-400 hover:text-indigo-300 flex items-center'
             >
               Global Business, No. 2 <ChevronRight className='w-4 h-4 ml-1' />
             </a>
