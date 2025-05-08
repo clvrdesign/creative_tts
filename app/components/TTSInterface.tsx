@@ -6,6 +6,7 @@ import { VoiceOptions } from './VoiceOptions';
 import { AdvancedControls } from './AdvancedControls';
 import { ActionButtons } from './ActionButtons';
 
+
 export const TTSInterface = () => {
   const [text, setText] = useState('Hello world! Clone my voice from the sample below.');
   const [pitch, setPitch] = useState(70);
@@ -54,8 +55,6 @@ export const TTSInterface = () => {
       <ActionButtons
         onGenerate={handleGenerate}
         onSave={handleSave}
-        onPlayOriginal={audioFile ? handlePlayOriginal : undefined}
-        onPlayCloned={text ? handlePlayCloned : undefined}
       />
     </div>
   );
