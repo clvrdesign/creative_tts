@@ -4,7 +4,7 @@ import Button from "../components/Button";
 
 const ContactPage = () => {
   return (
-    <main className='min-h-screen bg-neutral-50 dark:bg-neutral-950 py-12'>
+    <main className='min-h-screen bg-neutral-950 py-12'>
       <Container>
         {/* Hero Section */}
         <section className='text-center mb-16'>
