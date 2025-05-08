@@ -2,6 +2,7 @@ import logo from '@/public/logo.svg'
 import Container from './Container'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Menu } from 'lucide-react'
 
 const Navbar = () => {
   return (
@@ -24,8 +25,13 @@ const Navbar = () => {
             </h2>
           </div>
 
+          {/* Mobile Menu Icon */}
+          <div className="md:hidden flex items-center">
+            <Menu className="text-neutral-300 hover:text-white transition-colors duration-200" size={24} />
+          </div>
+
           {/* Navigation Links */}
-          <div className="flex items-center space-x-10">
+          <div className="md:flex hidden items-center space-x-10">
             <Link 
               href="/" 
               className="text-sm font-regular text-neutral-300 hover:text-white transition-colors duration-200"
@@ -45,7 +51,7 @@ const Navbar = () => {
               Contact
             </Link>
             <button className="px-4 py-3 cursor-pointer text-sm font-regular text-white bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-indigo-500/20">
-              Get Started
+              Login
             </button>
           </div>
         </div>

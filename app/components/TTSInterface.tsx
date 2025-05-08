@@ -34,7 +34,7 @@ export const TTSInterface = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-10 py-20 space-y-6 bg-white dark:bg-neutral-900 border border-neutral-800 rounded-4xl shadow-lg">
+    <div className="max-w-4xl mx-auto md:px-10 md:py-20 space-y-6 md:bg-neutral-900 md:border bg-neutral-950 border-neutral-800 border-0 md:rounded-4xl rounded-xl shadow-lg">
       <TextInputArea value={text} onChange={setText} />
       
       <VoiceOptions

@@ -21,14 +21,14 @@ export const VoiceOptions: React.FC<VoiceOptionsProps> = ({
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium text-neutral-700 dark:text-gray-300 mb-1">
+          <label className="block text-sm text-neutral-500 mb-1">
             Voice Source
           </label>
           <select
             onChange={(e) => onVoiceChange(e.target.value)}
-            className="w-full p-2 border border-neutral-700 rounded-md text-white"
+            className="w-full p-3 border border-neutral-800 text-sm rounded-xl focus:ring ring-indigo-600 duration-300 bg-neutral-900 text-white"
           >
             <option value="clone">Clone from Audio</option>
             <option value="male">Male Voice</option>
@@ -37,7 +37,7 @@ export const VoiceOptions: React.FC<VoiceOptionsProps> = ({
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          <label className="block text-sm text-white mb-1">
             Pitch: {pitch}%
           </label>
           <input
@@ -46,26 +46,25 @@ export const VoiceOptions: React.FC<VoiceOptionsProps> = ({
             max="150"
             value={pitch}
             onChange={(e) => onPitchChange(Number(e.target.value))}
-            className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer"
+            className="w-full h-2 bg-neutral-700 focus:bg-indigo-600 duration-300 accent-indigo-600 rounded-lg appearance-none cursor-pointer"
           />
         </div>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+      <div className='border-dashed border-[1px] border-neutral-700 hover:border-indigo-600 duration-300 p-4 rounded-xl'>
+        <label className="block text-sm text-neutral-400 mb-6">
           Upload 15s Sample
         </label>
         <input
           type="file"
           accept="audio/*"
           onChange={handleFileChange}
-          className="block w-full text-sm text-gray-500
-            file:mr-4 file:py-2 file:px-4
-            file:rounded-md file:border-0
-            file:text-sm file:font-semibold
-            file:bg-indigo-50 file:text-indigo-700
-            hover:file:bg-indigo-100
-            dark:file:bg-indigo-900 dark:file:text-indigo-100"
+          className="block w-full text-sm text-neutral-500
+            file:mr-4 file:py-3 file:px-6
+            file:rounded-xl file:border-0
+            file:text-sm cursor-pointer
+            file:bg-indigo-600 file:text-white
+            hover:file:bg-indigo-700"
         />
       </div>
     </div>

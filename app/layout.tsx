@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VOICE-CLONING TTS APP",
+  title: "Voice Cloning TTS App",
   description: "A voice-cloning TTS app"
 };
 
