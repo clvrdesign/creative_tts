@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { useState } from 'react';
 
 interface VoiceOptionsProps {
   pitch: number;
@@ -13,6 +16,14 @@ export const VoiceOptions: React.FC<VoiceOptionsProps> = ({
   onVoiceChange,
   onFileUpload
 }) => {
+  const [selectedVoice, setSelectedVoice] = useState('clone');
+
+  const handleVoiceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setSelectedVoice(value);
+    onVoiceChange(value);
+  };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.[0]) {
       onFileUpload(e.target.files[0]);
@@ -27,7 +38,8 @@ export const VoiceOptions: React.FC<VoiceOptionsProps> = ({
             Voice Source
           </label>
           <select
-            onChange={(e) => onVoiceChange(e.target.value)}
+            value={selectedVoice}
+            onChange={handleVoiceChange}
             className="w-full p-3 border border-neutral-800 text-sm rounded-xl focus:ring ring-indigo-600 duration-300 bg-neutral-900 text-white"
           >
             <option value="clone">Clone from Audio</option>
@@ -46,27 +58,30 @@ export const VoiceOptions: React.FC<VoiceOptionsProps> = ({
             max="150"
             value={pitch}
             onChange={(e) => onPitchChange(Number(e.target.value))}
-            className="w-full h-2 bg-neutral-700 focus:bg-indigo-600 duration-300 accent-indigo-600 rounded-lg appearance-none cursor-pointer"
+            className="w-full h-2 bg-neutral-700 focus:bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg appearance-none cursor-pointer"
           />
         </div>
       </div>
 
-      <div className='border-dashed border-[1px] border-neutral-700 hover:border-indigo-600 duration-300 p-4 rounded-xl'>
-        <label className="block text-sm text-neutral-400 mb-6">
-          Upload 15s Sample
-        </label>
-        <input
-          type="file"
-          accept="audio/*"
-          onChange={handleFileChange}
-          className="block w-full text-sm text-neutral-500
+      {/* Upload 15s Sample - Show only when clone is selected */}
+      {selectedVoice === 'clone' && (
+        <div className='border-dashed border-[1px] border-neutral-700 hover:border-indigo-600 duration-300 p-4 rounded-xl'>
+          <label className="block text-sm text-neutral-400 mb-6">
+            Upload 15s Sample
+          </label>
+          <input
+            type="file"
+            accept="audio/*"
+            onChange={handleFileChange}
+            className="block w-full text-sm text-neutral-500
             file:mr-4 file:py-3 file:px-6
             file:rounded-xl file:border-0
             file:text-sm cursor-pointer
             file:bg-indigo-600 file:text-white
             hover:file:bg-indigo-700"
-        />
-      </div>
+          />
+        </div>
+      )}
     </div>
   );
 };

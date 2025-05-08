@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from './context/ThemeContext'
 import { Sora, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
@@ -29,9 +30,11 @@ export default function RootLayout({
       <body
         className={`min-h-screen bg-neutral-950 ${soraSans.variable} ${inter.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <Footer/>
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -41,7 +41,7 @@ export const AdvancedControls: React.FC<AdvancedControlsProps> = ({
             max="200"
             value={speed}
             onChange={(e) => onSpeedChange(Number(e.target.value))}
-            className="w-full h-2 bg-neutral-700 focus:bg-indigo-600 duration-300 accent-indigo-600 rounded-lg appearance-none cursor-pointer"
+            className="w-full h-2 bg-neutral-700 focus:bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg appearance-none cursor-pointer"
           />
         </div>
       </div>
