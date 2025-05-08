@@ -3,6 +3,7 @@ import logo from '@/public/logo.svg'
 import Container from './Container'
 import Image from 'next/image'
 import Link from 'next/link'
+import Button from './Button'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -24,7 +25,7 @@ const Navbar = () => {
                 className="transition-transform duration-300 hover:scale-110"
               />
             </div>
-            <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-purple-300">
+            <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-300">
               TTS App
             </h2>
           </div>
@@ -60,9 +61,9 @@ const Navbar = () => {
               >
                 Contact
               </Link>
-              <button className="px-6 py-3 cursor-pointer text-sm font-regular text-white bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-indigo-500/20">
+              <Button>
                 Login
-              </button>
+              </Button>
             </div>
           )}
 

@@ -24,7 +24,7 @@ const Footer = () => {
                   className="transition-transform duration-300 hover:scale-110"
                 />
               </div>
-              <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-purple-300">
+              <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-300">
                 TTS App
               </h2>
             </div>
