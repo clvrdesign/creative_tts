@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`min-h-screen bg-neutral-950 ${soraSans.variable} ${inter.variable} antialiased`}
+        className={`min-h-screen bg-neutral-100 dark:bg-neutral-950 ${soraSans.variable} ${inter.variable} antialiased`}
       >
         <ThemeProvider>
           <Navbar />

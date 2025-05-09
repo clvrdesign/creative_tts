@@ -11,7 +11,7 @@ export default function Home() {
                     <div className="flex flex-col md:flex-row items-center gap-12">
                         <div className="md:w-1/2 space-y-6">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-white leading-tight">
-                                Transform Text <span className="text-indigo-600 dark:text-indigo-400">Into Natural</span> Speech
+                                Transform Text <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300">Into Natural</span> Speech
                             </h1>
                             <p className="text-xl text-neutral-600 dark:text-neutral-400">
                                 AI-powered voice cloning that sounds perfectly human. Create, customize, and deploy lifelike voiceovers in seconds.
@@ -49,7 +49,7 @@ export default function Home() {
                 <Container>
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-                            Powerful <span className="text-indigo-600 dark:text-indigo-400">Features</span>
+                            Powerful <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300">Features</span>
                         </h2>
                         <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
                             Everything you need to create professional voiceovers and audio content.
@@ -78,7 +78,7 @@ export default function Home() {
                 <Container>
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-                            How <span className="text-indigo-600 dark:text-indigo-400">It Works</span>
+                            How <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300">It Works</span>
                         </h2>
                         <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
                             Create custom voiceovers in just three simple steps
