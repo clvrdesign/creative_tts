@@ -95,7 +95,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-neutral-400 hover:text-blue-300 transition-colors duration-200 text-base"
+                      className="text-neutral-400 hover:text-indigo-400 transition-colors duration-200 text-base"
                     >
                       {link.label}
                     </Link>
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-neutral-800 pt-8 mb-4 flex flex-col md:flex-row justify-between items-center">
           <p className="text-neutral-500 text-sm">
             &copy; {currentYear} VoiceClone AI, Inc. All rights reserved.
           </p>

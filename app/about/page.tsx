@@ -10,7 +10,7 @@ const AboutPage = () => {
                 {/* Hero Section */}
                 <section className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
-                        About <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300">TTS App</span>
+                        About <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300">Voice Clone</span>
                     </h1>
                     <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
                         Revolutionizing text-to-speech with AI-powered voice cloning technology for natural, personalized audio experiences.
@@ -56,7 +56,7 @@ const AboutPage = () => {
                 </section>
 
                 {/* Team Section */}
-                <section className="mb-20">
+                <section className="mb-20 hidden">
                     <h2 className="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-12">
                         Meet Our Team
                     </h2>
