@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="!visible" suppressHydrationWarning>
       <body
         className={`min-h-screen bg-neutral-100 dark:bg-neutral-950 ${soraSans.variable} ${inter.variable} antialiased`}
       >

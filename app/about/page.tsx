@@ -99,7 +99,7 @@ const AboutPage = () => {
                 </section>
 
                 {/* CTA Section */}
-                <section className="text-center py-12 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800">
+                <section className="text-center py-12 px-4 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800">
                     <h2 className="max-w-[550px] mx-auto text-3xl font-bold text-neutral-900 dark:text-white mb-6">
                         Ready to Transform Your Audio Experience?
                     </h2>

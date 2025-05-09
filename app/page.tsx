@@ -6,17 +6,17 @@ export default function Home() {
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
-            <section className="bg-gradient-to-b from-indigo-50 to-white dark:from-neutral-900 dark:to-neutral-950 py-20 md:py-32">
+            <section className="bg-gradient-to-b from-indigo-50 to-white dark:from-neutral-900 dark:to-neutral-950 py-12 md:py-32">
                 <Container>
                     <div className="flex flex-col md:flex-row items-center gap-12">
-                        <div className="md:w-1/2 space-y-6">
+                        <div className="md:w-1/2 space-y-6 md:text-left text-center">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-white leading-tight">
                                 Transform Text <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300">Into Natural</span> Speech
                             </h1>
                             <p className="text-xl text-neutral-600 dark:text-neutral-400">
                                 AI-powered voice cloning that sounds perfectly human. Create, customize, and deploy lifelike voiceovers in seconds.
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            <div className="max-w-lg pt-4">
                                 <Button>
                                     <div className='flex items-center'>
                                         Get Started <ArrowRight className="ml-2 w-5 h-5" />

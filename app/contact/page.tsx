@@ -154,7 +154,7 @@ const ContactPage = () => {
 
         {/* Office Hours */}
         <section className='mb-20'>
-          <div className='bg-white dark:bg-neutral-800 p-8 rounded-xl border border-neutral-200 dark:border-neutral-700'>
+          <div className='bg-white dark:bg-neutral-900 p-8 rounded-xl border border-neutral-200 dark:border-neutral-800'>
             <h2 className='text-2xl font-semibold text-neutral-900 dark:text-white mb-6 flex items-center gap-2'>
               <Clock className='w-6 h-6 text-indigo-600 dark:text-indigo-400' />
               Office Hours
@@ -192,7 +192,7 @@ const ContactPage = () => {
         </section>
 
         {/* FAQ CTA */}
-        <section className='text-center py-12 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-2xl'>
+        <section className='text-center py-12 px-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl'>
           <h2 className='text-3xl font-bold text-neutral-900 dark:text-white mb-6'>
             Need Immediate Help?
           </h2>

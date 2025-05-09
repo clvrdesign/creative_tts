@@ -27,8 +27,8 @@ const Footer = () => {
                   className="transition-transform duration-300 hover:rotate-[-180deg]"
                 />
               </div>
-              <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600 select-none">
-                TTS App
+              <h2 className="md:text-2xl text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300">
+                Voice Clone
               </h2>
             </Link>
             <p className="text-neutral-400 text-lg leading-relaxed">
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-neutral-800 pt-8 pb-12 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-neutral-500 text-sm">
             &copy; {currentYear} VoiceClone AI, Inc. All rights reserved.
           </p>

@@ -3,41 +3,76 @@
 
 import { createContext, useContext, useEffect, useState } from 'react'
 
+type ThemeMode = 'light' | 'dark' | 'system'
 type ThemeContextType = {
-  darkMode: boolean
+  theme: ThemeMode
+  isDark: boolean
   toggleTheme: () => void
+  setTheme: (theme: ThemeMode) => void
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [darkMode, setDarkMode] = useState(false)
+  const [theme, setTheme] = useState<ThemeMode>('system')
+  const [isDark, setIsDark] = useState(false)
 
+  // Initialize theme and listen for system changes
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const savedTheme = localStorage.getItem('theme') as ThemeMode | null
+    const initialTheme = savedTheme || 'system'
+    setTheme(initialTheme)
     
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true)
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+    const updateSystemTheme = () => {
+      if (initialTheme === 'system') {
+        setIsDark(systemDark.matches)
+        document.documentElement.classList.toggle('dark', systemDark.matches)
+      }
     }
-  }, [])
+    
+    updateSystemTheme()
+    
+    const handleSystemChange = (e: MediaQueryListEvent) => {
+      if (theme === 'system') {
+        setIsDark(e.matches)
+        document.documentElement.classList.toggle('dark', e.matches)
+      }
+    }
+    
+    systemDark.addEventListener('change', handleSystemChange)
+    return () => systemDark.removeEventListener('change', handleSystemChange)
+  }, [theme])
 
+  // Handle manual theme changes
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
+    if (theme !== 'system') {
+      const dark = theme === 'dark'
+      setIsDark(dark)
+      document.documentElement.classList.toggle('dark', dark)
+      localStorage.setItem('theme', theme)
     }
-  }, [darkMode])
+  }, [theme])
 
   const toggleTheme = () => {
-    setDarkMode(!darkMode)
+    setTheme(prev => {
+      if (prev === 'system') return 'light'
+      if (prev === 'light') return 'dark'
+      return 'system'
+    })
+  }
+
+  const setThemeMode = (newTheme: ThemeMode) => {
+    setTheme(newTheme)
   }
 
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
+    <ThemeContext.Provider value={{ 
+      theme, 
+      isDark, 
+      toggleTheme, 
+      setTheme: setThemeMode 
+    }}>
       {children}
     </ThemeContext.Provider>
   )
