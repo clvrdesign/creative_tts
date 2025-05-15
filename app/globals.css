@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* Hide scrollbar but allow scrolling */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  overflow: auto; /* Ensure scrolling still works */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
 body {
   font-family: "Inter", sans-serif;
 }

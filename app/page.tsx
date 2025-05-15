@@ -107,7 +107,7 @@ export default function Home() {
                         <p className="text-xl mb-8 text-indigo-100">
                             Join thousands of creators using VoiceClone to produce professional voice content.
                         </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <div className="max-w-fit mx-auto flex flex-col sm:flex-row justify-center gap-4">
                             <Button variant='secondary'>
                                 Start Free Trial
                             </Button>

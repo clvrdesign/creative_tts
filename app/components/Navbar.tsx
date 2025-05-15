@@ -7,13 +7,13 @@ import Button from './Button'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import ThemeToggle from './ThemeToggle'
-import { useTheme } from '../context/ThemeContext'
 import { usePathname } from 'next/navigation'
 import Modal from '../components/Modal'
 import Auth from '../components/Auth'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isHide, setIsHide] = useState(true)
   const pathname = usePathname()
 
   const isActive = (path: string) => {
@@ -23,6 +23,7 @@ const Navbar = () => {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/create', label: 'Create Audio' },
+    { href: '/pricing', label: 'Pricing' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' }
   ]
@@ -30,8 +31,8 @@ const Navbar = () => {
   return (
     <>
       <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        isOpen={!isHide}
+        onClose={() => setIsHide(true)}
         title="Example Modal"
         size="md"
       >
@@ -98,10 +99,11 @@ const Navbar = () => {
                       {link.label}
                     </Link>
                   ))}
-
-                  <Button>
-                    Login
-                  </Button>
+                  <div onClick={() => setIsHide(false)}>
+                    <Button>
+                      Login
+                    </Button>
+                  </div>
                 </div>
                 {/* Overlay for mobile menu */}
                 <div
@@ -130,7 +132,7 @@ const Navbar = () => {
               <div className="hidden md:flex items-center">
                 <ThemeToggle />
               </div>
-              <div onClick={() => setIsOpen(true)}>
+              <div onClick={() => setIsHide(false)}>
                 <Button>
                   Login
                 </Button>

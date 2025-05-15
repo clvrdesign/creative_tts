@@ -13,9 +13,7 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({
     isOpen,
     onClose,
-    title,
     children,
-    size = 'md',
     closeOnOverlayClick = true
 }) => {
     // Handle escape key press
@@ -40,26 +38,30 @@ const Modal: React.FC<ModalProps> = ({
     if (!isOpen) return null
 
     // Size classes
-    const sizeClasses = {
-        sm: 'max-w-md',
-        md: 'max-w-xl',
-        lg: 'max-w-3xl',
-        xl: 'max-w-5xl'
-    }
+    const sizeClasses: Record<NonNullable<ModalProps['size']>, string> = {
+        sm: 'max-w-sm',
+        md: 'max-w-md',
+        lg: 'max-w-lg',
+        xl: 'max-w-xl',
+    };
 
     return (
-        <div onClick={closeOnOverlayClick ? onClose : undefined} className='fixed inset-0 h-screen bg-black/50 dark:bg-black/70 transition-opacity z-[999] overflow-y-auto'>
-
-            <div className='relative'>
+        <div
+            onClick={closeOnOverlayClick ? onClose : undefined}
+            className='fixed inset-0 w-full h-screen bg-black/50 dark:bg-black/70 transition-opacity z-[999] overflow-y-auto flex items-center justify-center'
+        >
+            <div
+                className={`relative w-full ${sizeClasses['md']}`}
+                onClick={e => e.stopPropagation()}
+            >
                 <button
                     onClick={onClose}
-                    className='absolute top-0 rounded-full p-1 text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-indigo-500'
+                    className='absolute top-8 right-6 rounded-full p-1 text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-indigo-500'
                 >
                     <X className='h-5 w-5' />
                 </button>
                 {children}
             </div>
-
         </div>
     )
 }
