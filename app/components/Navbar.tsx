@@ -38,7 +38,7 @@ const Navbar = () => {
       >
         <Auth />
       </Modal>
-      <nav className="sticky top-0 z-50 bg-white dark:bg-neutral-900 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700/50">
+      <nav className="fixed top-0 z-50 w-full bg-white dark:bg-neutral-900 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700/50">
         <Container>
           <div className="relative flex items-center justify-between">
             {/* Logo Section */}

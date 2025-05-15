@@ -4,7 +4,7 @@ import Button from './components/Button';
 
 export default function Home() {
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen mt-10">
             {/* Hero Section */}
             <section className="bg-gradient-to-b from-indigo-50 to-white dark:from-neutral-900 dark:to-neutral-950 py-12 md:py-32">
                 <Container>

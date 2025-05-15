@@ -1,11 +1,11 @@
 import React from 'react';
-import { Mic, Code, Globe, Users, Rocket, Shield } from 'lucide-react';
+import { Mic, Code, Globe, Users, Rocket, Shield, Github, Dribbble } from 'lucide-react';
 import Container from '../components/Container';
 import Button from '../components/Button';
 
 const AboutPage = () => {
     return (
-        <main className="min-h-screen bg-neutral-100 dark:bg-neutral-950 py-12">
+        <main className="min-h-screen bg-neutral-100 dark:bg-neutral-950 mt-20 py-12">
             <Container>
                 {/* Hero Section */}
                 <section className="text-center mb-16">
@@ -20,7 +20,7 @@ const AboutPage = () => {
                 {/* Mission Section */}
                 <section className="mb-20">
                     <div className="bg-white dark:bg-neutral-900 p-8 md:p-12 rounded-2xl border border-neutral-200 dark:border-neutral-800">
-                        <div className="max-w-4xl mx-auto">
+                        <div className="w-full">
                             <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-6 flex items-center gap-2">
                                 <Rocket className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                                 Our Mission
@@ -49,6 +49,101 @@ const AboutPage = () => {
                                     <p className="text-neutral-600 dark:text-neutral-400">
                                         Support for 30+ languages and dialects with authentic regional accents.
                                     </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Horizontal Voice Cloning Card */}
+                <section className="bg-white dark:bg-neutral-900 p-6 my-20 rounded-2xl border border-neutral-200 dark:border-neutral-800">
+                    <div className="flex flex-col md:flex-row gap-8">
+                        {/* Left Side - Info */}
+                        <div className="md:w-2/3 space-y-6">
+                            <div className="space-y-2">
+                                <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Voice Cloning</h2>
+                                <p className="text-neutral-600 dark:text-neutral-400">Clone your voice with our advanced AI technology.</p>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-3">
+                                    <h3 className="text-lg font-semibold text-neutral-800 dark:text-white">Features</h3>
+                                    <ul className="space-y-2 text-neutral-700 dark:text-neutral-400">
+                                        <li className="flex items-start">
+                                            <span className="mr-2 text-neutral-500 dark:text-neutral-500">•</span>
+                                            <span>High-quality voice synthesis</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="mr-2 text-neutral-500 dark:text-neutral-500">•</span>
+                                            <span>Customizable pitch and speed</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="mr-2 text-neutral-500 dark:text-neutral-500">•</span>
+                                            <span>Emotion detection and synthesis</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <h3 className="text-lg font-semibold text-neutral-800 dark:text-white">How to Use</h3>
+                                    <ol className="space-y-2 text-neutral-700 dark:text-neutral-400">
+                                        {[
+                                            "Upload a sample of your voice",
+                                            "Adjust the pitch and speed settings",
+                                            "Click 'Generate' to create your cloned voice"
+                                        ].map((step, index) => (
+                                            <li key={index} className="flex items-start">
+                                                <span className="mr-2 text-neutral-500 dark:text-neutral-500">{index + 1}.</span>
+                                                <span>{step}</span>
+                                            </li>
+                                        ))}
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right Side - Developer Profile */}
+                        <div className="md:w-1/3 md:border-l md:border-neutral-200 dark:border-neutral-700 md:pl-8">
+                            <div className="space-y-6">
+                                <div className="space-y-3">
+                                    <h3 className="text-lg font-semibold text-neutral-800 dark:text-white">Developer</h3>
+                                    <div className="flex items-center space-x-4">
+                                        <img
+                                            src="https://jfctjplvujhqsposskbb.supabase.co/storage/v1/object/sign/images/profile_sm.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzBkYzc2YTkxLTVhMTctNGUzOS1hOGNjLTAzMDM2M2IxNDM5NiJ9.eyJ1cmwiOiJpbWFnZXMvcHJvZmlsZV9zbS5qcGciLCJpYXQiOjE3NDY2ODYzODQsImV4cCI6MTc3ODIyMjM4NH0.5MpVAxqJv49Bw7JYR3AlXlMVZE5mFEfBp1xBocWjPwA"
+                                            alt="Developer"
+                                            width={80}
+                                            height={80}
+                                            className="rounded-full border-2 border-neutral-300 dark:border-neutral-700"
+                                        />
+                                        <div>
+                                            <p className="font-medium text-neutral-800 dark:text-white">Clever Designer</p>
+                                            <div className="flex space-x-3 mt-2">
+                                                <a href="https://github.com/clvrdesign" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
+                                                    <Github size={20} />
+                                                </a>
+                                                <a href="#" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
+                                                    <Dribbble size={20} />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <h3 className="text-lg font-semibold text-neutral-800 dark:text-white">Resources</h3>
+                                    <ul className="space-y-2">
+                                        {[
+                                            { name: "Documentation", href: "#" },
+                                            { name: "API Reference", href: "#" }
+                                        ].map((item, index) => (
+                                            <li key={index} className="flex items-start">
+                                                <span className="mr-2 text-neutral-500 dark:text-neutral-500">•</span>
+                                                <a href={item.href} className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors">
+                                                    {item.name}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         </div>
