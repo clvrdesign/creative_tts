@@ -1,10 +1,10 @@
+import { useState } from 'react'
 import { Lock, Mail, User, LogIn } from 'lucide-react'
 import { FcGoogle } from 'react-icons/fc'
-import Link from 'next/link'
 import Container from '../components/Container'
 
-
-const AuthPage = ({ isLogin = true }) => {
+const AuthPage = ({ isLoginIn = false }) => {
+    const [isLogin, setIsLogin] = useState(isLoginIn)
     const title = isLogin ? 'Welcome Back' : 'Create Account'
     const subtitle = isLogin
         ? 'Sign in to continue to your account'
@@ -13,7 +13,6 @@ const AuthPage = ({ isLogin = true }) => {
     const toggleText = isLogin
         ? "Don't have an account?"
         : "Already have an account?"
-    const toggleLink = isLogin ? "/signup" : "/login"
     const toggleLinkText = isLogin ? "Sign Up" : "Sign In"
 
     return (
@@ -125,9 +124,9 @@ const AuthPage = ({ isLogin = true }) => {
                             </div>
 
                             <div className="text-sm">
-                                <Link href="/forgot-password" className="font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300">
+                                <a href="/forgot-password" className="font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300">
                                     Forgot password?
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     )}
@@ -145,9 +144,13 @@ const AuthPage = ({ isLogin = true }) => {
                 {/* Footer */}
                 <div className="mt-6 text-center text-sm text-neutral-600 dark:text-neutral-400">
                     {toggleText}{' '}
-                    <Link href={toggleLink} className="font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300">
+                    <button
+                        type="button"
+                        className="font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 underline"
+                        onClick={() => setIsLogin((prev) => !prev)}
+                    >
                         {toggleLinkText}
-                    </Link>
+                    </button>
                 </div>
             </div>
         </Container>

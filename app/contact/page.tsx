@@ -138,7 +138,7 @@ const ContactPage = () => {
                     id='message'
                     name='message'
                     rows={4}
-                    className='w-full outline-none px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white'
+                    className='w-full min-h-32 outline-none px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white'
                     placeholder='Your message here...'
                   ></textarea>
                 </div>

@@ -15,6 +15,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isHide, setIsHide] = useState(true)
   const pathname = usePathname()
+  const isDashboard = pathname.startsWith('/dashboard')
 
   const isActive = (path: string) => {
     return pathname === path
@@ -27,6 +28,7 @@ const Navbar = () => {
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' }
   ]
+
 
   return (
     <>
@@ -99,11 +101,13 @@ const Navbar = () => {
                       {link.label}
                     </Link>
                   ))}
-                  <div onClick={() => setIsHide(false)}>
-                    <Button>
-                      Login
-                    </Button>
-                  </div>
+                  {!isDashboard && (
+                    <div onClick={() => setIsHide(false)}>
+                      <Button>
+                        Login
+                      </Button>
+                    </div>
+                  )}
                 </div>
                 {/* Overlay for mobile menu */}
                 <div
@@ -132,11 +136,13 @@ const Navbar = () => {
               <div className="hidden md:flex items-center">
                 <ThemeToggle />
               </div>
-              <div onClick={() => setIsHide(false)}>
-                <Button>
-                  Login
-                </Button>
-              </div>
+              {!isDashboard && (
+                <div onClick={() => setIsHide(false)}>
+                  <Button>
+                    Login
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </Container>

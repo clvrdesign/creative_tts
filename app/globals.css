@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+
 /* Hide scrollbar but allow scrolling */
-html, body {
+html,
+body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
   overflow: auto; /* Ensure scrolling still works */
@@ -12,12 +14,15 @@ body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
-
 body {
   font-family: "Inter", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Sora", sans-serif;
 }
-

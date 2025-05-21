@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useState } from 'react';
 import Container from "../components/Container";
@@ -60,6 +61,15 @@ export default function Home() {
 
     return (
         <Container>
+            {/* Hero Section */}
+                <section className="text-center mb-16 mt-30">
+                    <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
+                        Create Your<span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300"> Voice </span>Sample
+                    </h1>
+                    <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+                        Revolutionizing text-to-speech with AI-powered voice cloning technology for natural, personalized audio experiences.
+                    </p>
+                </section>
             {/* Main Content Area */}
             <main className="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800  mt-20 md:px-40 md:py-10 px-6 py-6 space-y-6 md:rounded-4xl rounded-xl">
                 {/* Text Input Section */}

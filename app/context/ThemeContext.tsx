@@ -1,87 +1,54 @@
-// context/ThemeContext.tsx
 'use client'
-
 import { createContext, useContext, useEffect, useState } from 'react'
 
-type ThemeMode = 'light' | 'dark' | 'system'
-type ThemeContextType = {
-  theme: ThemeMode
-  isDark: boolean
-  toggleTheme: () => void
-  setTheme: (theme: ThemeMode) => void
-}
+type Theme = 'light' | 'dark' | 'system'
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
+const ThemeContext = createContext<{
+  theme: Theme
+  isDark: boolean
+  setTheme: (theme: Theme) => void
+  toggleTheme: () => void
+}>(null!)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<ThemeMode>('system')
+  const [theme, setTheme] = useState<Theme>('system')
   const [isDark, setIsDark] = useState(false)
 
-  // Initialize theme and listen for system changes
+  // Apply theme changes
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as ThemeMode | null
-    const initialTheme = savedTheme || 'system'
-    setTheme(initialTheme)
+    const root = document.documentElement
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const shouldBeDark = theme === 'dark' || (theme === 'system' && systemPrefersDark)
     
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
-    const updateSystemTheme = () => {
-      if (initialTheme === 'system') {
-        setIsDark(systemDark.matches)
-        document.documentElement.classList.toggle('dark', systemDark.matches)
-      }
-    }
+    setIsDark(shouldBeDark)
+    root.classList.toggle('dark', shouldBeDark)
     
-    updateSystemTheme()
-    
-    const handleSystemChange = (e: MediaQueryListEvent) => {
-      if (theme === 'system') {
-        setIsDark(e.matches)
-        document.documentElement.classList.toggle('dark', e.matches)
-      }
-    }
-    
-    systemDark.addEventListener('change', handleSystemChange)
-    return () => systemDark.removeEventListener('change', handleSystemChange)
-  }, [theme])
-
-  // Handle manual theme changes
-  useEffect(() => {
     if (theme !== 'system') {
-      const dark = theme === 'dark'
-      setIsDark(dark)
-      document.documentElement.classList.toggle('dark', dark)
       localStorage.setItem('theme', theme)
     }
   }, [theme])
 
+  // Initialize from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as Theme | null
+    if (savedTheme) setTheme(savedTheme)
+  }, [])
+
   const toggleTheme = () => {
     setTheme(prev => {
-      if (prev === 'system') return 'light'
       if (prev === 'light') return 'dark'
-      return 'system'
+      if (prev === 'dark') return 'system'
+      return 'light'
     })
   }
 
-  const setThemeMode = (newTheme: ThemeMode) => {
-    setTheme(newTheme)
-  }
-
   return (
-    <ThemeContext.Provider value={{ 
-      theme, 
-      isDark, 
-      toggleTheme, 
-      setTheme: setThemeMode 
-    }}>
+    <ThemeContext.Provider value={{ theme, isDark, setTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )
 }
 
 export function useTheme() {
-  const context = useContext(ThemeContext)
-  if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider')
-  }
-  return context
+  return useContext(ThemeContext)
 }
